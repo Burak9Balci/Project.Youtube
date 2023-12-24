@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "YouTube API Integration";
+}
+
+<h2>Get Channel Videos</h2>
+
+<form method="post" asp-action="GetChannelVideos">
+    <label for="channelId">Channel Id:</label>
+    <input type="text" name = "channelId" required />
+    <br />
+    <label for="apiKey">API Key:</label>
+    <input type="text" name="apiKey" required />
+    <br />
+    <button type="submit">Get Details</button>
+</form>
+
+@if (ViewData["PlaylistVideos"] != null)
+{
+    <h3>Video Details:</h3>
+    <pre>@Html.Raw(ViewData["PlaylistVideos"])</pre>
+}
+
+@if (ViewData["Error"] != null)
+{
+    <p style="color: red;">Error: @ViewData["Error"]</p>
+}
